@@ -6,12 +6,12 @@
 #include <ctime>
 using namespace std;
 
-//Ë³Ğò±íµÄÕÛ°ë²éÕÒ
+//é¡ºåºè¡¨çš„æŠ˜åŠæŸ¥æ‰¾
 
 
 
 int main() {
-	//²âÊÔÊı×é
+	//æµ‹è¯•æ•°ç»„
 	time_t timer;
 
 
@@ -31,7 +31,7 @@ int main() {
 
 
 
-	cout << "µÚÒ»ÖÖ(Ë³Ğò²éÕÒ)" << endl;
+	cout << "ç¬¬ä¸€ç§(é¡ºåºæŸ¥æ‰¾)" << endl;
 	t_start = GetTickCount();
 
 	int index1 = 0;
@@ -43,13 +43,13 @@ int main() {
 
 
 
-	cout << "±È½Ï´ÎÊı:" << index1 << endl;
+	cout << "æ¯”è¾ƒæ¬¡æ•°:" << index1 << endl;
 
 
 
 
 	t_end = GetTickCount();
-	cout << "³ÌĞòÔËĞĞÊ±¼ä:" << (double)(t_end - t_start) / 1000 << "Ãë" << endl;
+	cout << "ç¨‹åºè¿è¡Œæ—¶é—´:" << (double)(t_end - t_start) / 1000 << "ç§’" << endl;
 
 
 
@@ -57,7 +57,7 @@ int main() {
 
 
 
-	cout << "µÚ¶şÖÖ(ÕÛ°ë²éÕÒ)" << endl;
+	cout << "ç¬¬äºŒç§(æŠ˜åŠæŸ¥æ‰¾)" << endl;
 	t_start = GetTickCount();
 	int left = 0;
 	int right = v.size() - 1;
@@ -66,11 +66,11 @@ int main() {
 		if (num == v[zhong]) {
 			break;
 		}
-		//Èç¹ûÒªÇóµÄÊı×ÖÔÚ×ó°ëÇøÓò,ÔòÖĞ¼ä¸üĞÂÎªÓÒ±ß½ç
+		//å¦‚æœè¦æ±‚çš„æ•°å­—åœ¨å·¦åŠåŒºåŸŸ,åˆ™ä¸­é—´æ›´æ–°ä¸ºå³è¾¹ç•Œ
 		else  if (num < v[zhong]) {
 			right = zhong;
 		}
-		//·ñÔò¸üĞÂÎª×ó±ß½ç
+		//å¦åˆ™æ›´æ–°ä¸ºå·¦è¾¹ç•Œ
 		else if (num > v[zhong]) {
 			left = zhong;
 		}
@@ -78,6 +78,6 @@ int main() {
 	}
 
 	t_end = GetTickCount();
-	cout << "³ÌĞòÔËĞĞÊ±¼ä:" << (double)(t_end - t_start) / 1000 << "Ãë" << endl;
+	cout << "ç¨‹åºè¿è¡Œæ—¶é—´:" << (double)(t_end - t_start) / 1000 << "ç§’" << endl;
 	return 0;
 }
