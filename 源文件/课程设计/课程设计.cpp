@@ -20,20 +20,22 @@ public:
 		getline(is, str);
 	}
 	//计算结果
-	//数栈出栈两个数字,符号栈出栈一个符号进行运算
+	//数栈出栈两个数字,符号栈出栈一个符号进行运算,
 	//操作成功返回true
+	//如果栈顶遇到左括号,则不再弹出返回
 	bool calculateone() {
 		if (numstack.size() == 0 || charstack.size() == 0) {
 			return false;
 		}
-
+		
+		char tempchar = charstack.front();
+		charstack.pop();
 		int num2 = numstack.front();
 		numstack.pop();
 		int num1 = numstack.front();
 		numstack.pop();
 
-		char tempchar = charstack.front();
-		charstack.pop();
+		
 
 		int result;
 
@@ -59,20 +61,22 @@ public:
 		//如果是操作数则直接入数栈
 		for (string::iterator it = str.begin(), E = str.end(); it != E; it++) {
 			int index = returnindex(*it);
-			if (index == -2) {
+			if (index == -3) {
 
 			}
 			//如果是操作数 直接入栈
-			else if (index == -1) {
+			else if (index == -2) {
 				numstack.push((*it) - '0');
 			}
 			//如果是运算符,则需要判断
 			else {
 
-				//栈为空,则直接入栈
-				if (charstack.size() == 0) {
+				//栈为空或者是左括号,则直接入栈
+				if (charstack.size() == 0 || (*it)=='(') {
 					charstack.push(*it);
 				}
+				//如果是右括号,则运算优先级最低,
+				
 				else {
 					//栈顶运算符优先级
 					int indexfront = returnindex(charstack.front());
@@ -84,8 +88,17 @@ public:
 					}
 					//否则,数栈出栈两个数字,符号栈出栈一个符号进行运算
 					else {
-						calculateone();
-						it--;
+						//判断待入栈运算符和栈顶运算符优先级都是-1,则弹出左右括号
+						if (indexfront==-1 && indextemp == -1) {
+							charstack.pop();
+							
+						}
+						else {
+							calculateone();
+							it--;
+						}
+						
+						
 					}
 
 
@@ -138,7 +151,11 @@ public:
 			return 1;
 			break;
 		case '/':
-			return 1;
+			return 1; 
+		case '(':
+			
+		case ')':
+			return -1;
 			break;
 		case '1':
 		case '2':
@@ -149,10 +166,10 @@ public:
 		case '7':
 		case '8':
 		case '9':
-			return -1;
+			return -2;
 			break;
 		default:
-			return -2;
+			return -3;
 			break;
 
 			break;
@@ -160,7 +177,7 @@ public:
 
 	}
 };
-int main() {
+int main1() {
 	Expression expression(cin);
 	expression.calculateresult();
 	expression.printresult();
@@ -168,5 +185,10 @@ int main() {
 	system("pause");
 	return 0;
 }
+
+
+
+
+
 
 

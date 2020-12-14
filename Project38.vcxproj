@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="头文件\stack.h" />
+    <ClInclude Include="源文件\课程设计\stack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="源文件\课程设计\课程设计.cpp" />
