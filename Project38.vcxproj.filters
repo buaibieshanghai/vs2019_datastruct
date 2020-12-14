@@ -15,7 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="源文件\牛大了\牛大了.cpp">
+    <ClInclude Include="头文件\stack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="源文件\课程设计\课程设计.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

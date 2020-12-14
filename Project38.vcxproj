@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="源文件\牛大了\牛大了.cpp" />
+    <ClInclude Include="头文件\stack.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="源文件\课程设计\课程设计.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
