@@ -46,11 +46,8 @@ public:
 		top--;
 	}
 	//ÏÔÊ¾Õ»¶¥ÔªËØ
-	int front() {
-		if (isEmpty()) {
-			return -1;
-		}
-		else {
+	T front() {
+		if (!isEmpty()) {
 			return p_array[top - 1];
 		}
 	}
